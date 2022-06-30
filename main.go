@@ -1,6 +1,9 @@
 package main
 
-import "flag"
+import (
+	"flag"
+	"fmt"
+)
 
 func main() {
 	var Addr = flag.String("a", "0.0.0.0:5555", "Address and port.")
@@ -11,9 +14,10 @@ func main() {
 	flag.Parse()
 
 	if *help {
-		println("help")
+		Help()
 		return
 	}
+	fmt.Println("#### faketelnet ####")
 
 	c := Config{
 		Addr:   *Addr,
