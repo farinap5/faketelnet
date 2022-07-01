@@ -6,6 +6,8 @@ This project implements a dynamic telnet server trying to act as a honeypot for 
 
 The software simulates an interactive shell environment and binds executed commands for future analysis.
 
+Faketelnet has the ability to run commands executed with **BusyBox**, so a more realistic system environment can be simulated inside a container and so on.
+
 Example of captured interaction:
 
 ![](img/img1.png)
@@ -13,6 +15,21 @@ Example of captured interaction:
 Interacting with the service:
 
 ![](img/img2.png)
+
+```bash
+╰─$ go run faketelnet -h                      
+#### faketelnet ####                          
+                                              
+COMMAND  DESCRIPTION          DEFAULT         
+-------  -----------          -------         
+-h       Help menu.           False           
+-b       Specify banner.      BusyBox v1.27.2 
+-a       Address Host:port.   0.0.0.0:5555    
+-u       User for login.      none            
+-p       Password for login.  none            
+-busy    Set BusyBox path.    none            
+```
+
 
 ## Download and Run
 

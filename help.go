@@ -14,6 +14,7 @@ func Help() {
 	t.AddLine("-a", "Address Host:port.", "0.0.0.0:5555")
 	t.AddLine("-u", "User for login.", "none")
 	t.AddLine("-p", "Password for login.", "none")
+	t.AddLine("-busy", "Set BusyBox path.", "none")
 	print("\n")
 	t.Print()
 	print("\n")

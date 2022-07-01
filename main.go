@@ -11,6 +11,7 @@ func main() {
 	var help = flag.Bool("h", false, "Help Menu")
 	var user = flag.String("u", "none", "Username")
 	var pass = flag.String("p", "none", "Password")
+	var busy = flag.String("busy", "none", "Busybox path.")
 	flag.Parse()
 
 	if *help {
@@ -20,10 +21,11 @@ func main() {
 	fmt.Println("#### faketelnet ####")
 
 	c := Config{
-		Addr:   *Addr,
-		Banner: *Bnnr,
-		User:   *user,
-		Pass:   *pass,
+		Addr:    *Addr,
+		Banner:  *Bnnr,
+		User:    *user,
+		Pass:    *pass,
+		BusyBox: *busy,
 	}
 
 	c.Init_server()

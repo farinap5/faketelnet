@@ -31,12 +31,18 @@ func (c Config) Shell(conn net.Conn, p User) {
 			conn.Close()
 			break
 		} else {
-			r := p.proc(cmd)
+			var r string
+			if c.BusyBox != "none" {
+				r = c.Bbox(cmd)
+			} else {
+				r = p.proc(cmd)
+			}
 			conn.Write([]byte(r + "\n" + shell))
 		}
 	}
 }
 
+// Very simple pseudo shell
 func (u User) proc(c string) string {
 	var ret string
 	cs := strings.Split(c, " ")

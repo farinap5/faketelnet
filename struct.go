@@ -1,10 +1,11 @@
 package main
 
 type Config struct {
-	Addr   string
-	Banner string
-	User   string
-	Pass   string
+	Addr    string
+	Banner  string
+	User    string
+	Pass    string
+	BusyBox string
 }
 
 type User struct {
