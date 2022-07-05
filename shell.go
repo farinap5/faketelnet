@@ -8,8 +8,9 @@ import (
 )
 
 // Shell pseudo shell
-func (c Config) Shell(conn net.Conn, p User) {
+func (c Config) Shell(conn net.Conn, p *User) {
 	var shell string
+	p.NC = 0;
 	if p.Username == "root" {
 		shell = "~# "
 	} else {
@@ -25,10 +26,11 @@ func (c Config) Shell(conn net.Conn, p User) {
 			log.Println(err.Error())
 			break
 		}
+		p.NC++
+		p.CMD = p.CMD+"\n"+cmd
 		cmd = strings.TrimSuffix(cmd, "\r")
 		log.Printf("input ip=%s login=%s cmd=%s", p.IP, p.Username, cmd)
 		if cmd == "exit" || cmd == "quit" || cmd == "C^" {
-			conn.Close()
 			break
 		} else {
 			var r string
