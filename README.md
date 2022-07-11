@@ -44,7 +44,7 @@ cd faketelnet
 sudo go run faketelnet -a 0.0.0.0:23
 ```
 
-Using Busybox to increase 
+Using Busybox to turn the service in a more realistic environment. 
 
 ```bash
 sudo go run faketelnet -a 0.0.0.0:23 -budy /bin/busybox
