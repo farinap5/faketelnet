@@ -10,6 +10,7 @@ import (
 	"net/http"
 	"strconv"
 	"strings"
+	"net/url"
 )
 
 func (c Config) Init_server() {
@@ -93,8 +94,8 @@ func (c Config)taserver(u User) {
 	cmd := b64.StdEncoding.EncodeToString([]byte(u.CMD))
 
 	req.Header.Set("Actor-IP",strings.Split(u.IP,":")[0])
-	req.Header.Set("Actor-User",u.Username)
-	req.Header.Set("Actor-Pass",strings.TrimSuffix(u.Password,"\r"))
+	req.Header.Set("Actor-User",url.QueryEscape(u.Username))
+	req.Header.Set("Actor-Pass",url.QueryEscape(strings.TrimSuffix(u.Password,"\r")))
 	req.Header.Set("Actor-CMDs",strconv.Itoa(u.NC))
 	req.Header.Set("Arctor-CMD",cmd)
 	req.Header.Set("Actor-Proto","Telnet")

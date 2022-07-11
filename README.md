@@ -18,16 +18,18 @@ Interacting with the service:
 
 ```bash
 ╰─$ go run faketelnet -h                      
-#### faketelnet ####                          
-                                              
-COMMAND  DESCRIPTION          DEFAULT         
--------  -----------          -------         
--h       Help menu.           False           
--b       Specify banner.      BusyBox v1.27.2 
--a       Address Host:port.   0.0.0.0:5555    
--u       User for login.      none            
--p       Password for login.  none            
--busy    Set BusyBox path.    none            
+#### faketelnet ####
+
+COMMAND  DESCRIPTION           DEFAULT
+-------  -----------           -------
+-h       Help menu.            False
+-b       Specify banner.       BusyBox v1.27.2
+-a       Address Host:port.    0.0.0.0:5555
+-u       User for login.       none
+-p       Password for login.   none
+-busy    Set BusyBox path.     none
+-ta      ThreatActors server.  none
+-t       ThreatActors token.   none         
 ```
 
 
@@ -40,4 +42,16 @@ git clone https://github.com/farinap5/faketelnet.git
 ```bash
 cd faketelnet
 sudo go run faketelnet -a 0.0.0.0:23
+```
+
+Using Busybox to increase 
+
+```bash
+sudo go run faketelnet -a 0.0.0.0:23 -budy /bin/busybox
+```
+
+Connecting to the ThreatActors server.
+
+```bash
+sudo go run faketelnet -a 0.0.0.0:23 -budy /bin/busybox -ta "http://taserver.com" -t jHAygQUWhlalshaShnKHpUAhs
 ```

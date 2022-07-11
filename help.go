@@ -15,6 +15,8 @@ func Help() {
 	t.AddLine("-u", "User for login.", "none")
 	t.AddLine("-p", "Password for login.", "none")
 	t.AddLine("-busy", "Set BusyBox path.", "none")
+	t.AddLine("-ta", "ThreatActors server.", "none")
+	t.AddLine("-t", "ThreatActors token.", "none")
 	print("\n")
 	t.Print()
 	print("\n")
